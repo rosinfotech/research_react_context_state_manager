@@ -1,14 +1,15 @@
-import { type FC, useCallback } from "react";
-import { Box } from "@mui/material";
 import { useContextStateSelector } from "@contexts/ContextState/ContextState";
-import { useRerenderColorize } from "@hooks/useRerenderColorize";
+import { Box } from "@mui/material";
+import { useColorizeRender } from "@rosinfo.tech/utils/useColorizeRender";
+import { useCallback } from "react";
+import type { FC } from "react";
 
 const CURSOR_SX = { cursor: "pointer" };
 
 export const BoxContextState2: FC = () => {
     const state2 = useContextStateSelector( state => state.state2 );
     const contextStateStateSet = useContextStateSelector( state => state.contextStateStateSet );
-    const { refHTMLElement } = useRerenderColorize( { name: "ButtonContextState2" } );
+    const { colorizeRenderRef } = useColorizeRender( { name: "ButtonContextState2" } );
 
     const onClick = useCallback( () => {
         contextStateStateSet( {
@@ -18,7 +19,7 @@ export const BoxContextState2: FC = () => {
 
     return (
         <Box
-            ref={ refHTMLElement }
+            ref={ colorizeRenderRef }
             sx={ CURSOR_SX }
             width="100%"
             onClick={ onClick }

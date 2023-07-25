@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
-import type { FC, PropsWithChildren } from "react";
 import { createContext, useContext, useContextSelector } from "use-context-selector";
 import type { IContextStateProviderState, IContextStateValue } from "./types";
+import type { FC, PropsWithChildren } from "react";
 
 const initialState: IContextStateProviderState = {
     state1: 0,

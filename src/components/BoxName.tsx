@@ -1,6 +1,6 @@
-import type { FC } from "react";
 import { Box } from "@mui/material";
-import { useRerenderColorize } from "@hooks/useRerenderColorize";
+import { useColorizeRender } from "@rosinfo.tech/utils/useColorizeRender";
+import type { FC } from "react";
 
 interface IBoxNameProps {
     name: string;
@@ -8,10 +8,10 @@ interface IBoxNameProps {
 
 export const BoxName: FC<IBoxNameProps> = ( props ) => {
     const { name } = props;
-    const { refHTMLElement } = useRerenderColorize( { name: `BoxName <${ name }>` } );
+    const { colorizeRenderRef } = useColorizeRender( { name: `BoxName <${ name }>` } );
 
     return (
-        <Box ref={ refHTMLElement } width="100%" >
+        <Box ref={ colorizeRenderRef } width="100%" >
             BoxName &lt;{name}&gt;
         </Box>
     );

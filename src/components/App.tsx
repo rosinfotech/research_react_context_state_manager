@@ -1,17 +1,17 @@
-import type { FC } from "react";
-import { Box } from "@mui/material";
 import { BoxContextState1 } from "@components/BoxContextState1";
 import { BoxContextState2 } from "@components/BoxContextState2";
-import { ContextStateProvider } from "@contexts/ContextState/ContextState";
-import { useRerenderColorize } from "@hooks/useRerenderColorize";
 import { BoxName } from "@components/BoxName";
+import { ContextStateProvider } from "@contexts/ContextState/ContextState";
+import { Box } from "@mui/material";
+import { useColorizeRender } from "@rosinfo.tech/utils/useColorizeRender";
+import type { FC } from "react";
 
 export const App: FC = () => {
-    const { refHTMLElement } = useRerenderColorize( { name: "App" } );
+    const { colorizeRenderRef } = useColorizeRender( { name: "App" } );
 
     return (
         <ContextStateProvider>
-            <Box ref={ refHTMLElement } display="flex" flexDirection="column">
+            <Box ref={ colorizeRenderRef } display="flex" flexDirection="column">
                 <BoxContextState1 />
                 <BoxName name="BoxName1" />
                 <BoxContextState2 />
